@@ -1,29 +1,27 @@
 import React from 'react';
+import {connect } from 'react-redux';
+import TeasContainer from './containers/TeasContainer'
 
-// import './App.css';
+import './App.css';
 // class componet
-class App extends React.Component {
-//   componentDidMount(){
-    
-//     fetch('http://localhost:3000/api/v1/teas/1/reviews', {
-//       method: 'GET'
-//     })
-    
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-// }
+ class App extends React.Component {
+
+
   render(){
     return (
       <div className="App">
-        <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          
-          App
-        </header>
+      <TeasContainer/>
+       
       </div>
     );
   }
   
 }
 
-export default App;
+export default connect() (App);
+
+
+
+
+
+  // {/* <img src={logo} className="App-logo" alt="logo" /> */}
