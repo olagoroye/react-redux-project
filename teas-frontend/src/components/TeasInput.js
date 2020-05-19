@@ -19,7 +19,13 @@ handleChange = (event) => {
 handleSubmit = (event) =>{
         event.preventDefault()
         this.props.createTeas(this.state)
-
+        this.setState({
+            name: "",
+            brand: "",
+            price: "",
+            img_url: "",
+            description: "",
+        })
 }
 
     render(){

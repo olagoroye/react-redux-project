@@ -1,7 +1,9 @@
 import React from 'react';
+import {Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {fetchTeas} from '../actions/teasFetch'
 import Teas from '../components/Teas'
+import Tea from '../components/Tea'
 import TeasInput from '../components/TeasInput'
 
 class TeasContainer extends React.Component {
@@ -13,8 +15,11 @@ class TeasContainer extends React.Component {
     render(){
         return(
             <div>
-               <TeasInput/>
-               <Teas teas={this.props.teas}/>
+                <Route path='/teas/new' component={TeasInput}/>
+                <Route path='/teas/:id' render = {(routerProps) =><Tea {...routerProps} teas={this.props.teas}/> } />
+                <Route exact path='/teas' render = {(routerProps) =><Teas {...routerProps} teas={this.props.teas}/> } />
+               {/* <TeasInput/> */}
+               {/* <Teas teas={this.props.teas}/> */}
             </div>
         );
     }
