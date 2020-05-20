@@ -14,6 +14,15 @@ export default function (state = {teas: []}, action){
                        return tea
                    }
                })}
+             case 'DELETE_REVIEW':
+                return {...state, teas: state.teas.map(tea =>{
+                    if(tea.id === action.payload.id){
+                        return action.payload
+                    }else {
+                        return tea
+                    }
+                })}
+                
         default:
             return state
     }

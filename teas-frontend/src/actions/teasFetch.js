@@ -36,7 +36,7 @@ export const fetchTeas = () => {
 export const addReview = (review, teaId) =>{
 
   return (dispatch)=>{
-    
+
     fetch(`http://localhost:3000/api/v1/teas/${teaId}/reviews`,{
       method: 'POST',
       headers: {
@@ -46,5 +46,19 @@ export const addReview = (review, teaId) =>{
     })
     .then(response => response.json())
     .then(tea => dispatch({type: 'ADD_REVIEW', payload: tea}))
+  }
+}
+
+
+export const deleteReview = (reviewId, teaId) =>{
+
+  return (dispatch)=>{
+
+    fetch(`http://localhost:3000/api/v1/teas/${teaId}/reviews/${reviewId}`,{
+      method: 'DELETE',
+      
+    })
+    .then(response => response.json())
+    .then(tea => dispatch({type: 'DELETE_REVIEW', payload: tea}))
   }
 }
