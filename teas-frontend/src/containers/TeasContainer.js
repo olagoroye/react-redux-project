@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {fetchTeas} from '../actions/teasFetch'
 import Teas from '../components/Teas'
@@ -15,11 +15,12 @@ class TeasContainer extends React.Component {
     render(){
         return(
             <div>
-                <Route path='/teas/new' component={TeasInput}/>
-                <Route path='/teas/:id' render = {(routerProps) =><Tea {...routerProps} teas={this.props.teas}/> } />
+                <Switch>
+                <Route exact path='/teas/new' component={TeasInput}/>
+                <Route exact path='/teas/:id' render = {(routerProps) =><Tea {...routerProps} teas={this.props.teas}/> } />
                 <Route exact path='/teas' render = {(routerProps) =><Teas {...routerProps} teas={this.props.teas}/> } />
-               {/* <TeasInput/> */}
-               {/* <Teas teas={this.props.teas}/> */}
+              
+               </Switch>
             </div>
         );
     }

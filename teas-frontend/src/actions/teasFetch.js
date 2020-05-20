@@ -33,3 +33,18 @@ export const fetchTeas = () => {
       }
   }
 
+export const addReview = (review, teaId) =>{
+
+  return (dispatch)=>{
+    
+    fetch(`http://localhost:3000/api/v1/teas/${teaId}/reviews`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(review)
+    })
+    .then(response => response.json())
+    .then(tea => dispatch({type: 'ADD_REVIEW', payload: tea}))
+  }
+}
