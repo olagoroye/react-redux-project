@@ -1,16 +1,12 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
-import {fetchTeas} from '../actions/teasFetch'
 import Teas from '../components/Teas'
 import Tea from '../components/Tea'
 import TeasInput from '../components/TeasInput'
 
 class TeasContainer extends React.Component {
 
-    componentDidMount(){
-         this.props.fetchTeas() //fetches all our teas from API
-    }
 
     render(){
         return(
@@ -32,4 +28,4 @@ const mapStateToProps = state =>{
         teas: state.teas
     }
 }
-export default connect (mapStateToProps, {fetchTeas})(TeasContainer)
+export default connect (mapStateToProps)(TeasContainer)

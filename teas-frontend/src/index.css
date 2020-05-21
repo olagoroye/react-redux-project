@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   font-family: verdana;
   /* -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', */
     /* 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', */
@@ -10,6 +13,66 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Courier New';
+  /* source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  text-align: center; 
+  color: black;
+}
+
+.TeasContainer, .NavBar {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.container {
+  width: 100%;
+  height: 170px;
+  display: block;
+  position: relative;
+  
+}
+
+.Tea, .Teas, .TeaInput {
+  margin: 25px;
+  padding: 20px;
+  border-radius: 3px;
+  border-color: black;
+  border-style: solid;
+  box-shadow: 4px 4px greenyellow; 
+  border-width: 1px;
+  min-width: 200px;
+}
+
+
+a:hover {
+  text-shadow: 1px 1px darkgray;
+  cursor: pointer;
+  color: lightgreen;
+}
+
+button, .NavBar > a {
+  box-shadow: 1px 1px greenyellow;
+  border-radius: 4px;
+  border-color: red;
+  border-style: solid;
+  border-width: 2px;
+  margin: 12px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px lightsteelblue;
+  border-radius: 4px;
+  border-color: gold;
+  color: white;
+  border-style: solid;
+  background-color: green
 }

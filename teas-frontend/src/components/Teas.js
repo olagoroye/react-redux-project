@@ -1,6 +1,6 @@
 import React from 'react'
-import Tea from './Tea'
-import {Route, Link} from 'react-router-dom'
+// import Tea from './Tea'
+import {Link} from 'react-router-dom'
 
  const Teas = (props)=> {
     //  console.log(props)
@@ -8,7 +8,7 @@ import {Route, Link} from 'react-router-dom'
     <div>
        {props.teas.map(tea => 
         <div key={tea.id}><Link to={`/teas/${tea.id}`}>{tea.name} {tea.brand} {tea.description}</Link> </div> )}
-
+            
          </div>
      )
      

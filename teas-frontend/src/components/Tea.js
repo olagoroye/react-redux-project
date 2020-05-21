@@ -1,7 +1,10 @@
 import React from 'react'
 import "./Tea.css"
 import { Redirect } from 'react-router-dom'
-import ReviewsContainer from '../containers/ReviewsContainers'
+import TeaEdit from './TeaEdit'
+
+
+import ReviewsContainer from '../containers/ReviewsContainer'
 
 // functional componet//show each tea with the associaton
 const Tea =(props)=> {
@@ -20,6 +23,7 @@ const Tea =(props)=> {
           <p>Description: {tea.description}</p>
           <p>Price: ${tea.price}</p>
           <ReviewsContainer tea={tea}/>
+          <h3>Edit Tea</h3> <TeaEdit tea={tea}/>
         </div> :
         <h2>Tea doesn't exist!</h2>
     )

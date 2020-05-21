@@ -31,7 +31,7 @@ return(
             <label>Write your Comment:
             <input type='text' placeholder='Comment' name='comment' value={this.state.name} onChange={this.handleChange} />
             </label><br/><br/>
-            <input type="submit" value="Add Comment"/>
+            <input type="submit" value="Add Review"/>
         </form>
 
     </div>

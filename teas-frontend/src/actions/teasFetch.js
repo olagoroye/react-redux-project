@@ -28,11 +28,14 @@ export const fetchTeas = () => {
             body: JSON.stringify(data)
           })
           .then(response =>response.json())
-          .then(tea => dispatch({type: 'ADD_TEA', payload: tea }))
-
+          .then(tea => {dispatch({type: 'ADD_TEA', payload: tea })
+                return tea
+        
+        })
+          
       }
   }
-
+//issues with redirect
 export const addReview = (review, teaId) =>{
 
   return (dispatch)=>{
@@ -45,7 +48,8 @@ export const addReview = (review, teaId) =>{
       body: JSON.stringify(review)
     })
     .then(response => response.json())
-    .then(tea => dispatch({type: 'ADD_REVIEW', payload: tea}))
+    .then(tea => dispatch({type: 'ADD_REVIEW', payload: tea})
+       )
   }
 }
 
@@ -61,4 +65,21 @@ export const deleteReview = (reviewId, teaId) =>{
     .then(response => response.json())
     .then(tea => dispatch({type: 'DELETE_REVIEW', payload: tea}))
   }
+}
+
+export const editTea = (data) =>{
+    return (dispatch ) => {
+      fetch (`http://localhost:3000/api/v1/teas/${data.id}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        method: 'PATCH',
+        body: JSON.stringify(data)
+      })
+      .then(response =>response.json())
+      .then(tea => dispatch({type: 'EDIT_TEA', payload: tea }))
+
+}
+
 }

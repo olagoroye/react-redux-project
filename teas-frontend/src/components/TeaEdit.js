@@ -1,18 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { createTeas } from '../actions/teasFetch'
+import { editTea } from '../actions/teasFetch'
 
 
-// const initialState = {
-//     name: "",
-//     brand: "",
-//     price: "",
-//     img_url: "",
-//     description: "",
-      
-// }
-
-class TeasInput extends React.Component{
+class TeaEdit extends React.Component{
     state = {
         name: "",
         brand: "",
@@ -27,7 +18,8 @@ handleChange = (event) => {
 }
 handleSubmit = (event) =>{
         event.preventDefault()
-        this.props.createTeas(this.state)
+        let tea = {...this, id: this.props.tea.id}
+        this.props.editTea(tea)
         this.setState({
             name: "",
             brand: "",
@@ -39,20 +31,18 @@ handleSubmit = (event) =>{
 
     render(){
         return(
-            <div style={{width: "400px"}}className="row center">
+            <div>
                 <form onSubmit={this.handleSubmit}>
-
-                <input name="name" style={{borderRadius: "80px", border: "solid 1px #2196F3",width: "200px,"}} placeholder="Name" onChange={this.handleChange} value={this.state.name}/><br/>
+                <input name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name}/><br/>
                 <input name="brand" placeholder="brand" onChange={this.handleChange} value={this.state.brand}/><br/>
                 <input name="description" placeholder="description" onChange={this.handleChange} value={this.state.description}/><br/>
                 <input name="img_url" placeholder="img_url" onChange={this.handleChange} value={this.state.img_url}/><br/>
                 <input name="price" placeholder="price" onChange={this.handleChange} value={this.state.price} /><br/>
-                <input type="submit" value="Add Tea"/>
-                
+                <input type="submit" value="Edit Tea"/>
                 </form>
             </div>
         )
     }
 }//controlled form
 
-export default connect (null, {createTeas})(TeasInput)
+export default connect (null, {editTea})(TeaEdit)
