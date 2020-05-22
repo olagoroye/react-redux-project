@@ -24,6 +24,7 @@ import './App.css';
          <Jumbotron>
           <div className="App">
             <h1>Get The Tasters</h1>
+           
        
               <NavBar />
               <Switch>

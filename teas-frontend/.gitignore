@@ -1,23 +1,23 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+teas-frontend/node_modules
+teas-frontend/.pnp
 .pnp.js
 
 # testing
-/coverage
+teas-frontend/coverage
 
 # production
-/build
+teas-frontend/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+teas-frontend/.DS_Store
+teas-frontend/.env.local
+teas-frontend/.env.development.local
+teas-frontend/.env.test.local
+teas-frontend/.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+teas-frontend/npm-debug.log*
+teas-frontend/yarn-debug.log*
+teas-frontend/yarn-error.log*

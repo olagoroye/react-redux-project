@@ -1,4 +1,5 @@
 export const loadTeas = teas => ({ type: "LOAD_TEAS", teas })
+export const makeTeas = teas => ({ type: "ADD_TEAS", teas })
 
 
 
@@ -16,7 +17,7 @@ export const fetchTeas = () => {
     }
   } //fetching all teas from the database
 
-  export const createTeas = (data) =>{
+  export const createTeas = (data, history) =>{
 
       return (dispatch ) => {
           fetch ("http://localhost:3000/api/v1/teas", {
@@ -28,10 +29,17 @@ export const fetchTeas = () => {
             body: JSON.stringify(data)
           })
           .then(response =>response.json())
-          .then(tea => {dispatch({type: 'ADD_TEA', payload: tea })
-                return tea
-        
-        })
+          .then(tea => {
+            if (tea.error){
+              alert(tea.error)
+            }else {
+              dispatch(makeTeas(tea))
+              history.push('/teas') 
+            } 
+            // dispatch({type: 'ADD_TEA', payload: tea })
+                // return tea
+              }
+        )
           
       }
   }
@@ -54,11 +62,11 @@ export const addReview = (review, teaId) =>{
 }
 
 
-export const deleteReview = (reviewId, teaId) =>{
+export const deleteReview = (reviewId) =>{
 
   return (dispatch)=>{
 
-    fetch(`http://localhost:3000/api/v1/teas/${teaId}/reviews/${reviewId}`,{
+    fetch(`http://localhost:3000/api/v1/reviews/${reviewId}`,{
       method: 'DELETE',
       
     })
