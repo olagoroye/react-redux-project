@@ -37,6 +37,7 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   # DELETE /reviews/1
+  #made a private route
   def destroy
     @review = Review.find(params["id"])
     @tea = @review.tea
