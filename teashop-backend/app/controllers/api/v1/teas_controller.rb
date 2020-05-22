@@ -1,0 +1,54 @@
+class Api::V1::TeasController < ApplicationController
+  
+  before_action :set_tea, only: [:show, :update, :destroy]
+
+  # GET /teas
+  def index
+    @teas = Tea.all
+
+    render json: @teas, include: :reviews
+  end
+
+  # GET /teas/1
+  def show
+    set_tea
+    render json: @tea
+  end
+
+  # POST /teas
+  def create
+    @tea = Tea.new(tea_params)
+
+    if @tea.save
+      render json: @tea, status: :created
+    else
+      render json: @tea.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /teas/1
+  def update
+    if @tea.update(tea_params)
+      render json: @tea
+    else
+      render json: @tea.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /teas/1
+  def destroy
+    set_tea
+    @tea.destroy
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_tea
+      @tea = Tea.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def tea_params
+      params.require(:tea).permit(:name, :price, :description, :img_url, :brand)
+    end
+end
