@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Tea.css"
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 
 
 

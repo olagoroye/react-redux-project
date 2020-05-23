@@ -29,7 +29,7 @@ return(
     <div>
         <form onSubmit={this.handleSubmit}>
             <label>Write your Comment:
-            <input type='text' placeholder='Comment' name='comment' value={this.state.name} onChange={this.handleChange} />
+            <input type='text' placeholder='Comment' name='comment' value={this.state.comment} onChange={e => this.handleChange(e)} />
             </label><br/><br/>
             <input type="submit" value="Add Review"/>
         </form>

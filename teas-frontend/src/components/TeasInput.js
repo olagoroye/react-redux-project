@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { createTeas } from '../actions/teasFetch'
-import { editTea } from '../actions/teasFetch'
+// import { editTea } from '../actions/teasFetch'
 
 
 // const initialState = {
@@ -20,6 +20,7 @@ class TeasInput extends React.Component{
         price: "",
         img_url: "",
         description: "",
+        error: ""
     }
 handleChange = (event) => {
     this.setState({ 
@@ -28,14 +29,23 @@ handleChange = (event) => {
 }
 handleSubmit = (event) =>{
         event.preventDefault()
-        this.props.createTeas(this.state, this.props.history)
+        let nameField = document.getElementById('BeName')
+        if (!this.state.name){
+            this.setState({
+                error: 'please fill out the empty field'
+            })
+            nameField.className = 'redfield'
+        } else
+       { this.props.createTeas(this.state, this.props.history)
         this.setState({
             name: "",
             brand: "",
             price: "",
             img_url: "",
             description: "",
+            error: ""
         })
+    }
 }
 
     render(){
@@ -45,7 +55,7 @@ handleSubmit = (event) =>{
                 <form onSubmit={this.handleSubmit}>
 
                 <label className="black-text left"htmlFor="name">Tea Name: </label>
-                <input name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name}/><br/>
+                <input name="name" placeholder="Name" id="BeName" onChange={this.handleChange} value={this.state.name}/><br/>
 
                  <label className="black-text left"htmlFor="name">Tea Brand</label>
                 <input name="brand" placeholder="brand" onChange={this.handleChange} value={this.state.brand}/><br/>
@@ -64,6 +74,9 @@ handleSubmit = (event) =>{
                 <input style={{borderRadius: "22px" , width: "100%"}}className="btn blue" type="submit" value="Add Tea"/>
                 
                 </form>
+                <div className='errors'>
+                    {this.state.error}
+                </div>
             </div>
         )
     }

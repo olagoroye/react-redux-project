@@ -48,8 +48,15 @@ p {
   border-width: 1px;
   min-width: 200px;
 }
-
-
+.redfield{
+  border: 8px solid red;
+  
+}
+.errors{
+   color: red;
+   font-size: 25pt;
+  
+}
 a:hover {
   text-shadow: 1px 1px darkgray;
   cursor: pointer;
