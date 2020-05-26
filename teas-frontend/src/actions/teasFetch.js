@@ -1,5 +1,5 @@
 export const loadTeas = teas => ({ type: "LOAD_TEAS", teas })
-export const makeTeas = teas => ({ type: "ADD_TEAS", teas })
+export const makeTeas = tea => ({ type: "ADD_TEA", tea: tea })
 
 
 
@@ -33,6 +33,7 @@ export const fetchTeas = () => {
             if (tea.error){
               alert(tea.error)
             }else {
+          
               dispatch(makeTeas(tea))
               history.push('/teas') 
             } 
@@ -75,19 +76,3 @@ export const deleteReview = (reviewId) =>{
   }
 }
 
-export const editTea = (data) =>{
-    return (dispatch ) => {
-      fetch (`http://localhost:3000/api/v1/teas/${data.id}`, {
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        method: 'PATCH',
-        body: JSON.stringify(data)
-      })
-      .then(response =>response.json())
-      .then(tea => dispatch({type: 'EDIT_TEA', payload: tea }))
-
-}
-
-}

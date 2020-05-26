@@ -10,7 +10,6 @@ const Reviews = (props) => {
         props.deleteReview(review.id, review.account_id)
 
     }
-
     return(
         <div>
          {props.reviews && props.reviews.map(review =>

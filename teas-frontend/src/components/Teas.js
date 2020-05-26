@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 
  const Teas = (props)=> {
     //  console.log(props)
+    
+
      return(
     <div>
        {props.teas.map(tea => 

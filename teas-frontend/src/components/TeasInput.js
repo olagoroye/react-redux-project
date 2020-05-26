@@ -4,15 +4,6 @@ import { createTeas } from '../actions/teasFetch'
 // import { editTea } from '../actions/teasFetch'
 
 
-// const initialState = {
-//     name: "",
-//     brand: "",
-//     price: "",
-//     img_url: "",
-//     description: "",
-      
-// }
-
 class TeasInput extends React.Component{
     state = {
         name: "",
@@ -20,17 +11,24 @@ class TeasInput extends React.Component{
         price: "",
         img_url: "",
         description: "",
-        error: ""
+        error: {
+            name: false,
+            brand: false,
+            price: false,
+            img_url: false,
+            description: false
+        }
     }
 handleChange = (event) => {
     this.setState({ 
         [event.target.name]: event.target.value
     })
 }
+//not rendering automatically anymore
 handleSubmit = (event) =>{
         event.preventDefault()
-        let nameField = document.getElementById('BeName')
-        if (!this.state.name){
+     
+        if (!this.state.name || !this.state.price ||!this.state.brand || !this.state.img_url || !this.state.description){
             this.setState({
                 error: 'please fill out the empty field'
             })
@@ -53,7 +51,7 @@ handleSubmit = (event) =>{
             <div style={{width: "400px"}}className="row center">
                    
                 <form onSubmit={this.handleSubmit}>
-
+                        <h1>Add Me A Tea</h1>
                 <label className="black-text left"htmlFor="name">Tea Name: </label>
                 <input name="name" placeholder="Name" id="BeName" onChange={this.handleChange} value={this.state.name}/><br/>
 

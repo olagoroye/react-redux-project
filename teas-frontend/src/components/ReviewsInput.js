@@ -14,9 +14,10 @@ handleChange = (event) => {
     })
 
 }
-// can't find id......
+
 handleSubmit = (event) =>{
     event.preventDefault() 
+    if (!this.state.comment) return
     this.props.addReview(this.state, this.props.tea.id)
     this.setState({
         comment: ''

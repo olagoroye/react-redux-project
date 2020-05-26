@@ -11,11 +11,12 @@ class TeasContainer extends React.Component {
     render(){
         return(
             <div>
+               
                 <Switch>
                 <Route exact path='/teas/new' component={TeasInput}/>
                 <Route exact path='/teas/:id' render = {(routerProps) =><Tea {...routerProps} teas={this.props.teas}/> } />
                 <Route exact path='/teas' render = {(routerProps) =><Teas {...routerProps} teas={this.props.teas}/> } />
-              
+               
                </Switch>
             </div>
         );

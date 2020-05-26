@@ -7,6 +7,7 @@ import TeasInput from './components/TeasInput'
 import { Switch, Route } from 'react-router-dom'
 import {connect } from 'react-redux';
 import TeasContainer from './containers/TeasContainer'
+
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './App.css';
@@ -31,8 +32,9 @@ import './App.css';
             
               <Route exact path="/teas/new" component={TeasInput}/>
               <Route path="/teas" component={TeasContainer}/>
+              
               <Route path="/" component={Home}/>
-
+              
               </Switch>
            
           </div>

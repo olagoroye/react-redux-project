@@ -7,7 +7,12 @@ export default function (state = {teas: []}, action){
         // return action.teas
 
         case 'ADD_TEA':
-            return {...state, tea: [...state.teas, action.payload]}
+           
+            return {...state, tea: [...state.teas, action.tea]}
+           
+            // return state.teas.concat(action.payload)
+    
+            // return state.concat(action.tea)
 
             case 'ADD_REVIEW':
                return {...state, teas: state.teas.map(tea =>{
