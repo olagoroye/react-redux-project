@@ -26,10 +26,8 @@ import './App.css';
           <div className="App">
             <h1>Get The Tasters</h1>
            
-       
               <NavBar />
               <Switch>
-            
               <Route exact path="/teas/new" component={TeasInput}/>
               <Route path="/teas" component={TeasContainer}/>
               

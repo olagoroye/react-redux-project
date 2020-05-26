@@ -23,7 +23,7 @@ const Tea =(props)=> {
           <p>Description: {tea.description}</p>
           <p>Price: ${tea.price}</p>
           <ReviewsContainer tea={tea}/>
-          {/* <h3>Edit Tea</h3> <TeaEdit tea={tea}/> */}
+          
         </div> :
         <h2>Tea doesn't exist!</h2>
     )

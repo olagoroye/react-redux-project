@@ -11,13 +11,7 @@ class TeasInput extends React.Component{
         price: "",
         img_url: "",
         description: "",
-        error: {
-            name: false,
-            brand: false,
-            price: false,
-            img_url: false,
-            description: false
-        }
+        error: ""
     }
 handleChange = (event) => {
     this.setState({ 
@@ -30,9 +24,9 @@ handleSubmit = (event) =>{
      
         if (!this.state.name || !this.state.price ||!this.state.brand || !this.state.img_url || !this.state.description){
             this.setState({
-                error: 'please fill out the empty field'
+                error: 'please fill out all field'
             })
-            nameField.className = 'redfield'
+            // nameField.className = 'redfield'
         } else
        { this.props.createTeas(this.state, this.props.history)
         this.setState({
