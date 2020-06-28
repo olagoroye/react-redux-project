@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {addBottle} from '../actions/BottleAction'
+
 
 
 class BottleForm extends Component {
@@ -8,6 +11,7 @@ class BottleForm extends Component {
         price: "",
         img_url: "",
         description: "",
+        error: ""
      
     }
     handleChange =(event) =>{
@@ -17,28 +21,16 @@ class BottleForm extends Component {
     }
     handleSubmit = (e) =>{
         e.preventDefault()
-        // const [name,price,description,brand,img_url] = e.target.querySelectorAll('input')
-        // const bottle = {
-        //     name: name.value,
-        //     price: price.value,
-        //     description: description.value,
-        //     brand: brand.value,
-        //     img_url: img_url.value
-        // }
-        // console.log(bottle)
-        this.props.addBottle(this.state)
-           this.setState({
-            name: "",
-            brand: "",
-            price: "",
-            img_url: "",
-            description: ""
-           })
+        if (!this.state.name || !this.state.price ||!this.state.brand || !this.state.img_url || !this.state.description)
+            {  this.setState({error: 'please fill out all field'}) }
+        else{this.props.addBottle(this.state, this.props.history)
+              this.setState({name: "", brand: "", price: "", img_url: "", description: ""})
+            }     
         
     }
 
     render() {
-        console.log('form')
+        //  console.log('form')
         return (
         
             <div>
@@ -64,13 +56,20 @@ class BottleForm extends Component {
                 <input style={{borderRadius: "22px" , width: "100%"}}className="btn blue" type="submit" value="Add Bottle"/>
 
                 </form>
+                <div className='errors'>
+                    {this.state.error}
+                </div>
                 
             </div>
         )
     }
 }
 
+// const mapStateToProp = state =>{
+//     return{
+//         bottleFormData: state.bottleFormData
+//     }
+// }
+export default connect(null,{addBottle})(BottleForm);
 
-
-
-export default BottleForm;
+// export default connect(mapStateToProp,{addBottle})(BottleForm);

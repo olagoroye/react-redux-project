@@ -12,3 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Nav.Link {
+  font-family: 'Roboto Condensed', sans-serif;
+} */
+
+.NavBar{
+  justify-content: Right;
+  font-size: 50px;
+  margin: 12px;
+  padding: 5px;
+}

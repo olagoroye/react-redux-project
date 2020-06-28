@@ -1,7 +1,12 @@
 import React from 'react';
 import "./Bottle.css"
+import {connect} from 'react-redux'
+import {deleteBottle} from '../actions/BottleAction'
+import {updateBottle} from '../actions/BottleAction'
+import {Link} from 'react-router-dom'
 
-export default class Bottle extends React.Component {
+
+class Bottle extends React.Component {
     // constructor(props){
     //     super(props)
     //     this.state ={
@@ -24,23 +29,31 @@ export default class Bottle extends React.Component {
   
 
     render() {
+        // let bottle = this.props.bottles.find(bottle=> bottle.id ===this.props.match.params.id)
         return (
           <div className='Bottle'>
-                
+               
                 <p>Name:{this.props.bottle.name} </p>
                 <img className="bottleImage" src={this.props.bottle.img_url} alt={this.props.bottle.img_url} />
+               
                 <p>Brand:{this.props.bottle.brand}</p>
-                <p>Description: {this.props.bottle.description}</p>
-                <p>Price: ${this.props.bottle.price}</p>
+               
+                 <p><strong> <Link to={`/bottles/${this.props.bottle.id}`}>Description: {this.props.bottle.description} </Link></strong></p>
+               
+                {/* <Link to={`/bottles/${this.props.bottle.id}`}>Desc</Link> */}
+               
+                <p>Price: ${this.props.bottle.price}</p> <br/>
+               
                 <p>{this.state.likes}</p>
                 <button onClick={this.handleLike}> <span role="img" aria-label="red tea">👍</span></button>
-                <button onClick={() => this.props.removeBottle(this.props.bottle.id)}><span role="img" aria-label="red tea">♻️</span></button>
+                <button onClick={() => this.props.deleteBottle(this.props.bottle.id)}><span role="img" aria-label="red bottle">♻️</span></button>
+                <button onClick={() => this.props.updateBottle(this.props.bottle.id)}>Edit</button>
                <hr/>
             </div>
         )
     }
 }
-
+export default connect(null, {deleteBottle,updateBottle}) (Bottle)
 
 
 // function Bottle (props){

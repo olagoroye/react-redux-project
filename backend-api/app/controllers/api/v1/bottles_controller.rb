@@ -16,7 +16,7 @@ class Api::V1::BottlesController < ApplicationController
   # POST /bottles
   def create
     @bottle = Bottle.new(bottle_params)
-
+    # byebuy
     if @bottle.save
       render json: @bottle, status: :created
     else
@@ -36,7 +36,7 @@ class Api::V1::BottlesController < ApplicationController
   # DELETE /bottles/1
   def destroy
     if @bottle.destroy
-      render status: 204
+      render json: @bottle
     else
       render json: { message: "Unable to remove this bottle"}, status: 400
     end

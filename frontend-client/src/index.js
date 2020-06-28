@@ -1,15 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import './index.css';
 import App from './App';
 import {BrowserRouter as Router } from 'react-router-dom'
+import thunk from 'redux-thunk'
+import {createStore, applyMiddleware, combineReducers, compose} from 'redux'
 import * as serviceWorker from './serviceWorker';
+import bottles from './reducers/bottles'
+import bottleFormData from './reducers/bottleFormData'
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const reducers = combineReducers({ bottles, bottleFormData})
+const store = createStore(reducers, composeEnhancers(
+    applyMiddleware(thunk)
+  ));
 
 ReactDOM.render(
+ 
   <React.StrictMode>
+    <Provider store={store}>
     <Router>
     <App />
     </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
