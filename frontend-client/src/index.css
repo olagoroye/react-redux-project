@@ -16,9 +16,29 @@ code {
   font-family: 'Roboto Condensed', sans-serif;
 } */
 
-.NavBar{
+/* .NavBar{
   justify-content: Right;
   font-size: 50px;
   margin: 12px;
   padding: 5px;
+} */
+.nav{
+  font-size: 50px;
+  display: inline;
+  font-family:tempus sans itc;
+ 
 }
+.navigation_bar > ul > li {
+  list-style: none;
+  display: inline;
+  margin: 3%;
+  font-size: 50px;
+  
+}
+.bottle-form{
+  margin: 12%;
+  font-size: 25px;
+  border-width: 15px;
+}
+
+

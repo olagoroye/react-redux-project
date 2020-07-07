@@ -9,6 +9,7 @@ import {createStore, applyMiddleware, combineReducers, compose} from 'redux'
 import * as serviceWorker from './serviceWorker';
 import bottles from './reducers/bottles'
 import bottleFormData from './reducers/bottleFormData'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

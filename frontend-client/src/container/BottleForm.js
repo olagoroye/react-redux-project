@@ -15,8 +15,8 @@ class BottleForm extends Component {
      
     }
     handleChange =(event) =>{
-        this.setState({
-          [event.target.name]: event.target.value
+        this.setState ( {
+         [event.target.name]: event.target.value
         })
     }
     handleSubmit = (e) =>{
@@ -33,7 +33,7 @@ class BottleForm extends Component {
         //  console.log('form')
         return (
         
-            <div>
+            <div style={{width: "400px"}} className= 'bottle-form'>
                 <form id="bottle-form" onSubmit={this.handleSubmit}>
                 <h1>Add Me A Bottle</h1>
                 <label className="black-text left"htmlFor="name">Bottle Name: </label>
