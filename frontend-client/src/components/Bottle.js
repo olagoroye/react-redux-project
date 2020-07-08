@@ -6,8 +6,6 @@ import {deleteBottle} from '../actions/BottleAction'
 // import {Link} from 'react-router-dom'
 
 
-
-
 function Bottle (props){
     return(
         <div className='Bottle'>

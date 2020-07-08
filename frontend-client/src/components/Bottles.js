@@ -9,7 +9,7 @@ const Bottles = (props)=> {
     return (
         <div className='bottleContainer'>
       
-     {props.bottles.length > 0 && props.bottles.map(bottle =>  <Bottle key={bottle.id} bottle={bottle}   />)}
+     { props.bottles.map(bottle =>  <Bottle key={bottle.id} bottle={bottle}   />)}
       
    </div>
     )
