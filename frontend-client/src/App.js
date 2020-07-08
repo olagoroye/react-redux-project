@@ -29,7 +29,7 @@ class App extends React.Component {
             <NavBar/>
               <Style>
               <Switch>
-                    <Route exact path='/bottles/new' component={BottleForm}/>
+                   <Route exact path='/bottles/new' component={BottleForm}/>
                     <Route path="/bottles" component={BottlesContainer}/>
                     <Route path="/" component={Home}/>
               </Switch>

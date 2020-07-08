@@ -35,24 +35,31 @@ class BottleForm extends Component {
         
             <div style={{width: "400px"}} className= 'bottle-form'>
                 <form id="bottle-form" onSubmit={this.handleSubmit}>
-                <h1>Add Me A Bottle</h1>
-                <label className="black-text left"htmlFor="name">Bottle Name: </label>
-                <input name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name}/><br/>
+
+
+                <h1 >Add Me A Bottle</h1>
+                <br/>
+
+                <div className="input-field">
+                <label className="black-text left"htmlFor="name"> Bottle Name: </label>
+                <input  type="text" name="name" placeholder="Name" onChange={this.handleChange} value={this.state.name}/><br/>
+                </div>
+                <br/>
 
                  <label className="black-text left"htmlFor="name">Bottle Brand:</label>
                 <input name="brand" placeholder="brand" onChange={this.handleChange} value={this.state.brand}/><br/>
 
-                
+                <br/>
                  <label className="black-text left"htmlFor="name">Bottle Descipt:</label>
                 <input name="description" placeholder="description" onChange={this.handleChange} value={this.state.description} /><br/>
-
+                <br/>
                  <label className="black-text left"htmlFor="name">Bottle Image:</label>
-                <input name="img_url" placeholder="img_url" onChange={this.handleChange} value={this.state.img_url}/><br/>
-
+                <input type="text" name="img_url" placeholder="img_url" onChange={this.handleChange} value={this.state.img_url}/><br/>
+                <br/>
                 
                  <label className="black-text left"htmlFor="name">Bottle Price:</label>
                 <input name="price" placeholder="price" onChange={this.handleChange} value={this.state.price} /><br/>
-                
+                <br/>
                 <input style={{borderRadius: "22px" , width: "100%"}}className="btn blue" type="submit" value="Add Bottle"/>
 
                 </form>

@@ -1,7 +1,7 @@
 //** action creators
-export const updateBottleForm = bottleFormData =>{
-    return{type:'UPDATE_FORM' , bottleFormData}
-}
+// export const updateBottleForm = bottleFormData =>{
+//     return{type:'UPDATE_FORM' , bottleFormData}
+// }
 
 //** asyn
 export const fetchBottles = () => {
@@ -34,22 +34,7 @@ export const addBottle = (bottle, history) => {
     }
 }
 
-export const updateBottle = (bottle, bottleId) => {
-   
-    return dispatch => {
-         fetch(`http://localhost:3000/api/v1/bottles/${bottleId}`, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(bottle)})
-        .then(resp => resp.json())
-        .then(bottle =>{if (bottle.error){
-            console.log('Please form')}
-        else{ dispatch({type: 'EDIT_BOTTLE', bottleId } )
-        
-       }} )
-      
-    }
-}
+
 
 
 // export const deleteBottle = (bottleId) =>{
